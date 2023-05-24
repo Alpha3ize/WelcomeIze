@@ -18,6 +18,14 @@ public class Meeting {
 	public void setM_Id(String m_Id) {
 		this.m_Id = m_Id;
 	}
+	
+	public Date getM_Date() {
+		return m_Date;
+	}
+
+	public void setM_Date(Date m_Date) {
+		this.m_Date = m_Date;
+	}
 
 	public Date getM_Date_End() {
 		return m_Date_End;
@@ -27,20 +35,28 @@ public class Meeting {
 		this.m_Date_End = m_Date_End;
 	}
 
-	public int getPrice() {
-		return price;
+	public String getM_Name() {
+		return m_Name;
 	}
 
-	public void setPrice(int price) {
-		this.price = price;
+	public void setM_Name(String m_Name) {
+		this.m_Name = m_Name;
 	}
  
-	public Type getType() {
-		return type;
+	public String getM_Place() {
+		return m_Place;
 	}
 
-	public void setType(Type type) {
-		this.type = type;
+	public void setM_Place(String m_Place) {
+		this.m_Place = m_Place;
+	}
+	
+	public int getM_Delete_Flag() {
+		return m_Delete_Flag;
+	}
+
+	public void setM_Delete_Flag(int m_Delete_Flag) {
+		this.m_Delete_Flag = m_Delete_Flag;
 	}
 //koment
 }
