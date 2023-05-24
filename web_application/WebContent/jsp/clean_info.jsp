@@ -35,10 +35,7 @@
 				</tr>
 			</c:forEach>
 		</table>
-		<form action="<%=request.getContextPath()%>/jsp/home.jsp"
-			method="post">
-			<input type="submit" value="戻る" />
-		</form>
+		<a href="/jsp/home.jsp">戻る</a>
 
 
 

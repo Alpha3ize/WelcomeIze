@@ -13,7 +13,7 @@ public class CleanInfoDao{
 public static list<CleanInfo_List> findCleanInfoDao(String CleanInfotext) {
 	Connection con = null;
 	PreparedStatement ps = null;
-	List<CleanInfo_List> foodList = new ArrayList<FoodCleanInfo_List>();try
+	List<CleanInfo_List> foodList = new ArrayList<CleanInfo_List>();try
 	{
 		con = DBManager.getConnection();
 		ps = con.prepareStatement("SELECT * FROM foods f INNER JOIN type t"
