@@ -1,6 +1,5 @@
 package jp.co.alpha.bean;
 
-import jp.co.sss.bean2.Type;
 import java.util.Date;
 
 public class Meeting {
@@ -11,11 +10,11 @@ public class Meeting {
 	private String m_Place;
 	private int m_Delete_Flag;
 	
-	public String getM_Id() {
+	public int getM_Id() {
 		return m_Id;
 	}
 
-	public void setM_Id(String m_Id) {
+	public void setM_Id(int m_Id) {
 		this.m_Id = m_Id;
 	}
 	
