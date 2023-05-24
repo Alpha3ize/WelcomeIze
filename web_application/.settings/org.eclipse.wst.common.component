@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
-    <wb-module deploy-name="team_development">
+        
+    <wb-module deploy-name="web_application">
+                
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
+                
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
-        <property name="context-root" value="team_development"/>
-        <property name="java-output-path" value="/team_development/build/classes"/>
+                
+        <property name="java-output-path" value="/web_application/build/classes"/>
+        <property name="context-root" value="web_application"/>
+            
     </wb-module>
+    
 </project-modules>
