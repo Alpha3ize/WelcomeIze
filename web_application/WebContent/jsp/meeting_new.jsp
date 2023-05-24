@@ -10,15 +10,18 @@
 <body>
 <article class="main">
 <h3>面談予定登録画面</h3>
-<form action="<%=request.getContextPath()%>/check16" method="post">
+<form action="<%=request.getContextPath()%>/" method="post">
 <p>日時：<input type="date" name="meetDate" /></p>
 <p>場所 ：<input type="text" name="meetPlace" /><p>
 <!-- nameタグは仮のネーミング -->
 <p>メンバー：<select name="meetMember">
-<%= for %>
-<option value="001" ></option>
+<c:forEach var="member" items="${メンバー}">
+<c:forEach var="val" items="${社員ID }">
+<option value="${val}" >${member}</option>
+</c:forEach>
+</c:forEach>
 </select></p>
-<input type="button" >
+<input type="button"  value="戻る">
 <input type="submit" value="登録" />
 </form>
 </article>

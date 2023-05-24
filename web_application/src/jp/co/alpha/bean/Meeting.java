@@ -19,12 +19,12 @@ public class Meeting {
 		this.m_Id = m_Id;
 	}
 
-	public String getM_Date_End() {
+	public Date getM_Date_End() {
 		return m_Date_End;
 	}
 
 	public void setM_Date_End(Date m_Date_End) {
-		this.foodName = foodName;
+		this.m_Date_End = m_Date_End;
 	}
 
 	public int getPrice() {
