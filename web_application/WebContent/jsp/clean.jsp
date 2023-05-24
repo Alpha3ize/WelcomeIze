@@ -11,19 +11,22 @@
 	<%-- 以下の変数名は適当に設定してあるので編集してください --%>
 	<h2>今日の掃除</h2>
 	<h3>過去２日の全体報告</h3>
-	<c:forEach var="CleanInfo_List" items="${CleanInfo_List}">
+	<c:forEach var="ClInfo" items="${CleanInfo_List}">
 		<tr>
-			<td>${CleanInfo_List.}</td>
+			<td>${ClInfo.cs_body}</td>
 		</tr>
 	</c:forEach>
 	</table>
 	<a href="/jsp/clean_info">もっと見る</a>
+	
+	
+	
 
+	<%-- 掃除場所 --%>
 	<select>
-		<c:forEach var="CleanPlace" items="${CleanPlace_List}">
-			<option
-				value="${cleanplace}>${cleanplace}</option>
-	</c:forEach>
+		<c:forEach var="cleanPlace" items="${CleanPlace_List}">
+			<option value="${Cleanplace}>${Cleanplace}</option>
+		</c:forEach>
 	</select>
 
 	<h3>掃除場所詳細</h3>

@@ -24,6 +24,7 @@ public class CleanInfoDao extends HttpServlet {
 			while (rs.next()) {
 				Clean_Info cleanInfo = new Clean_Info();
 				cleanInfo.setSerch_CleanInfo(rs.getString("cs_body"));
+				CleanInfo_List.add(cleanInfo);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
