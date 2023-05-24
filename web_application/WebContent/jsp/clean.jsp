@@ -8,11 +8,12 @@
 <title>今日の掃除の詳細</title>
 </head>
 <body>
+	<%-- 以下の変数名は適当に設定してあるので編集してください --%>
 	<h2>今日の掃除</h2>
 	<h3>過去２日の全体報告</h3>
-	<c:forEach var="CleanInfo" items="${CleanInfo_List}">
+	<c:forEach var="CleanInfo_List" items="${CleanInfo_List}">
 		<tr>
-			<td>${CleanInfo_text}</td>
+			<td>${CleanInfo_List.}</td>
 		</tr>
 	</c:forEach>
 	</table>

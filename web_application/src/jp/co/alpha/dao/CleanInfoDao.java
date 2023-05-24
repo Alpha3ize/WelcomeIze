@@ -3,42 +3,34 @@ package jp.co.alpha.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CleanInfoDao{
-	
-}
+import javax.servlet.http.HttpServlet;
 
-public static list<CleanInfo_List> findCleanInfoDao(String CleanInfotext) {
-	Connection con = null;
-	PreparedStatement ps = null;
-	List<CleanInfo_List> foodList = new ArrayList<CleanInfo_List>();try
-	{
-		con = DBManager.getConnection();
-		ps = con.prepareStatement("SELECT * FROM foods f INNER JOIN type t"
-				+ " ON f.type_id = t.type_id WHERE food_name LIKE ?");
-		ps.setString(1, "%" + Serch_CleanInfo + "%");
-		ResultSet rs = ps.executeQuery();
-		while (rs.next()) {
-			Food food = new Food();
-			food.setFoodId(rs.getString("food_id"));
-			food.setFoodName(rs.getString("food_name"));
-			food.setPrice(rs.getInt("price"));
-			Type type = new Type();
-			type.setTypeId(rs.getString("type_id"));
-			type.setTypeName(rs.getString("type_name"));
-			food.setType(type);
-			foodList.add(food);
+import jp.co.alpha.bean.Clean_Info;
+
+public class CleanInfoDao extends HttpServlet {
+
+	public static List<Clean_Info> twoCleanInfo(String CleanInfotext) {
+		Connection con = null;
+		PreparedStatement ps = null;
+		List<Clean_Info> CleanInfo_List = new ArrayList<Clean_Info>();
+		try {
+			con = DBManager.getConnection();
+			ps = con.prepareStatement("SELECT cs_body FROM clean_share ORDER BY cs_date DESC FETCH FIRST 2 ROWS ONLY");
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+				Clean_Info cleanInfo = new Clean_Info();
+				cleanInfo.setSerch_CleanInfo(rs.getString("cs_body"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBManager.close(ps, con);
 		}
-	}catch(
-	SQLException e)
-	{
-		e.printStackTrace();
-	}finally
-	{
-		DBManager.close(ps, con);
-	}return foodList;
-}
+		return CleanInfo_List;
+	}
 
 }
