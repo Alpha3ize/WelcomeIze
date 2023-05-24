@@ -14,14 +14,11 @@ import javax.servlet.http.Part;
  */
 @WebServlet("/admin_user_add")
 public class AdminUserAdd extends HttpServlet {
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html; charset=UTF-8");
 		Part part = null;
 
@@ -35,20 +32,20 @@ public class AdminUserAdd extends HttpServlet {
 			return;
 		}
 
+
 		// アップロードされたファイル名の取得
 		String fileName = getFileName(part);
 		System.out.println(fileName);
 	}
-
 	public String getFileName(Part part) {
 		String name = null;
 		for (String dispotion : part.getHeader("Content-Disposition").split(";")) {
-			if (dispotion.trim().startsWith("filename")) {
+			if(dispotion.trim().startsWith("filename")) {
 				name = dispotion.substring(dispotion.indexOf("=") + 1).replace("\"", "").trim();
 				name = name.substring(name.lastIndexOf("\\") + 1);
 				break;
 			}
 		}
 		return name;
-	}
+	}	
 }

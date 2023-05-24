@@ -9,20 +9,22 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import jp.co.alpha.bean.Meeting;
-
 /**
  * Servlet implementation class MeetingEditer
  */
-@WebServlet("/meetingediter") //編集画面表示サーブレット
-public class MeetingEditer extends HttpServlet {
+@WebServlet("/meetingeditdeside") //編集画面表示サーブレット
+public class MeetingEditDeside extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
 		int m_id = request.getParameter("meeting_id");
-		List<Meeting> meetList = MeetingDao.selectMeet(m_id);
+		int m_date = request.getParameter("m_date");
+		int m_date_end = request.getParameter("m_date_end");
+		int m_name = request.getParameter("m_name");
+		int m_place = request.getParameter("m_place");
+		List<Meeting> meetList = MeetingDao.updateMeet(m_id, m_date, m_date_end, m_name, m_place);
 		request.setAttribute("meetList", meetList);
-		request.getRequestDispatcher("/jsp/Meeting.jsp").forward(request, response);//編集画面にディスパッチ
+		request.getRequestDispatcher("/jsp/Meeting.jsp").forward(request, response);//更新後の画面に遷移　スコープに保存はするべき？
 	}
 
 }

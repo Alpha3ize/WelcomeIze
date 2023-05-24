@@ -1,3 +1,4 @@
+//掃除備品一覧Servlet
 package jp.co.alpha.servlet.cleaning;
 
 import java.io.IOException;
@@ -9,22 +10,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import jp.co.alpha.bean.CleanPrace;
-import jp.co.alpha.dao.CleanPraceDao;
+import jp.co.alpha.bean.CleanTool;
+import jp.co.alpha.dao.CleanToolDao;
 
-/**
- * Servlet implementation class CleaingView
- */
-@WebServlet("/to_clean")
-public class ToClean extends HttpServlet {
+@WebServlet("/toCtool")
+public class ToCtool extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
-		List<CleanPrace> CleanPraceList = CleanPraceDao.findAll();
-		request.setAttribute("CleanPraceList", CleanPraceList);
-		request.getRequestDispatcher("/jsp/clean.jsp").forward(request, response);
-
+		List<CleanTool> CleanToolList = CleanToolDao.findAll();
+		request.setAttribute("CleanToolList", CleanToolList);
+		request.getRequestDispatcher("/jsp/tool.jsp").forward(request, response);
 	}
 
 }

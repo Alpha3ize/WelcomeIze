@@ -14,5 +14,10 @@
 		<input type="password" name="password">
 		<input type="submit" value="ログイン">
 	</form>
+	<div>
+		<!--  <c:if user="${user.id == null}">
+		<p class="error">失敗しました</p>
+	</c:if>
+	</div>-->
 </body>
 </html>

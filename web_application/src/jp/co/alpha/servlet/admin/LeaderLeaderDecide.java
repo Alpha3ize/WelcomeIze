@@ -18,7 +18,28 @@ public class AdminUserAdd extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
+}
+package jp.co.alpha.servlet.admin
+;
+
+import java.rmi.ServerException;
+import java.rmi.server.ServerCloneException;
+
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/**
+ * Servlet implementation class LeaderDecide
+ */
+@WebServlet("/leaderDecide")
+public class LeaderDecide extends HttpServlet {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+	throws ServerException IOException{
+		
 	}
+}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
