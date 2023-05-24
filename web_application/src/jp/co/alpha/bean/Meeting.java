@@ -34,7 +34,7 @@ public class Meeting {
 	public void setPrice(int price) {
 		this.price = price;
 	}
-
+ 
 	public Type getType() {
 		return type;
 	}
@@ -42,5 +42,5 @@ public class Meeting {
 	public void setType(Type type) {
 		this.type = type;
 	}
-
+//koment
 }
