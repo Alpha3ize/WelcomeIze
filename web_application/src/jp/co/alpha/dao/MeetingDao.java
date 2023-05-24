@@ -11,10 +11,10 @@ import jp.co.sss.beanTw.Tweets;
 import jp.co.sss.dao.DBManagerTw;
 
 public class MeetingDao {
-	public static List<Tweets> allTweets() {
+	public static List<Meeting> () {
 		Connection con = null;
 		PreparedStatement ps = null;
-		List<Tweets> tweetList = new ArrayList<>();
+		List<Meeting> tweetList = new ArrayList<>();
 		try {
 			con = DBManagerTw.getConnection();
 			ps = con.prepareStatement(
