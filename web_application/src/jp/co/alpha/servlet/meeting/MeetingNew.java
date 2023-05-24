@@ -11,32 +11,19 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class MeetingNew
  */
-@WebServlet("/MeetingNew")
+@WebServlet("/meetingnew")
 public class MeetingNew extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public MeetingNew() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		String  = request.getParameter("");
+		String  = request.getParameter("");
+		String  = request.getParameter("");
+		String  = request.getParameter("");
+		
+		request.setAttribute("", );
+		request.setAttribute("", catGender);
+		request.setAttribute("catAge", catAge);
+		request.setAttribute("catMail", catMail);
+		request.getRequestDispatcher("/jsp/j0511/neko_input.jsp").forward(request, response);
 	}
 
 }
