@@ -4,9 +4,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>今日の掃除の詳細</title>
 </head>
 <body>
+<h2>今日の掃除</h2>
+<h3>過去２日の全体報告</h3>
+
+
+<h3>掃除場所詳細</h3>
 
 </body>
 </html>
