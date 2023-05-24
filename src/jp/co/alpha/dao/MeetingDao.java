@@ -11,7 +11,7 @@ import java.util.List;
 import jp.co.alpha.bean.Meeting;
 
 public class MeetingDao {
-	public static void insertMeet(Date m_date, Date m_date_end, String name, String place) {
+	public static void insertMeet(Date m_date, Date m_date_end, String[] m_name, String m_place) {
 		Connection con = null;
 		PreparedStatement ps = null;
 		try {

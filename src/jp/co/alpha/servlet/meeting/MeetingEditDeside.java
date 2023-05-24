@@ -8,13 +8,15 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 /**
  * Servlet implementation class MeetingEditer
  */
-@WebServlet("/meetingeditdeside")//編集画面表示サーブレット
+@WebServlet("/meetingeditdeside") //編集画面表示サーブレット
 public class MeetingEditDeside extends HttpServlet {
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
 		int m_id = request.getParameter("meeting_id");
 		int m_date = request.getParameter("m_date");
 		int m_date_end = request.getParameter("m_date_end");

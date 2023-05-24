@@ -6,7 +6,7 @@ public class Meeting {
 	private int m_Id;
 	private Date m_Date;
 	private Date m_Date_End;
-	private String m_Name;
+	private String[] m_Name;
 	private String m_Place;
 	private int m_Delete_Flag;
 	
@@ -34,11 +34,11 @@ public class Meeting {
 		this.m_Date_End = m_Date_End;
 	}
 
-	public String getM_Name() {
+	public String[] getM_Name() {
 		return m_Name;
 	}
 
-	public void setM_Name(String m_Name) {
+	public void setM_Name(String[] m_Name) {
 		this.m_Name = m_Name;
 	}
  
