@@ -4,7 +4,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import jp.co.alpha.bean.Users;
@@ -94,22 +96,41 @@ public class UsersDao {
 		return usersList;
 	}
 
+
 	public static void insert(Users user) {
 		Connection con = null;
 		PreparedStatement ps = null;
 		try {
 			con = DBManager.getConnection();
-			ps = con.prepareStatement("INSERT INTO users VALUES(?,?,?,?,?)");
+			ps = con.prepareStatement("INSERT INTO users VALUES(?, ?, ?, ?, ?)");
 			ps.setInt(1, user.getId());
-			ps.setString(4, user.getName());
-			ps.setString(2, user.getEmail());
-			ps.setString(3, user.getPassword());
+			ps.setString(2, user.getName());
+			ps.setString(3, user.getEmail());
+			ps.setString(4, user.getPassword());
 			ps.setInt(5, user.getFlag());
 			ps.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			DBManager.close(ps, con);
+		}
+	}
+	
+	public static List<Users> listCreater(List<Users> userList) {
+		int yy = Integer.parseInt(new SimpleDateFormat("yy").format(new Date()));
+		int id = findId(yy);
+		id = yy * 100 + id;
+		for (Users user : userList) {
+			user.setId(id);
+			user.setFlag(0);
+			id++;
+		}
+		return userList;
+	}
+
+	public static void insertList(List<Users> userList) {
+		for (Users user : userList) {
+			insert(user);
 		}
 	}
 
@@ -132,6 +153,29 @@ public class UsersDao {
 			} else {
 				id = UsersDao.allUsers().size() + 1;
 			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBManager.close(ps, con);
+		}
+		return id;
+	}
+
+	public static int findId(int year) {
+		final int FIRST_NUMBER = 1;
+		Connection con = null;
+		PreparedStatement ps = null;
+		int id = 0;
+		List<Integer> idList = new ArrayList<>();
+		try {
+			con = DBManager.getConnection();
+			ps = con.prepareStatement("SELECT * FROM users WHERE u_id = ?");
+			ps.setString(1, "%" + year + "%");
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+				idList.add(rs.getInt("u_id"));
+			}
+			id = UsersDao.allUsers().size() + FIRST_NUMBER;
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {

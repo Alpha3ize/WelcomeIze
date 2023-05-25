@@ -10,14 +10,15 @@
 	<form action="<%=request.getContextPath()%>/login" method="post">
 		<label>メールアドレス</label>
 		<input type="text" name="email">
+		<br>
 		<label>パスワード</label>
 		<input type="password" name="password">
 		<input type="submit" value="ログイン">
 	</form>
 	<div>
-		<!--  <c:if user="${user.id == null}">
-		<p class="error">失敗しました</p>
-	</c:if>
-	</div>-->
+		<c:if test="${empty user.id}">
+			<p class="error">失敗しました</p>
+		</c:if>
+	</div>
 </body>
 </html>

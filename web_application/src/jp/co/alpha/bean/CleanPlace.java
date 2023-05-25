@@ -1,9 +1,10 @@
 package jp.co.alpha.bean;
 
-public class UserPlace {
+public class CleanPlace {
 	private int id;
-	private Users users;
-	private CleanPlace cp;
+	private String name;
+	private String content;
+	private int deleteFlag;
 
 	public int getId() {
 		return id;
@@ -13,19 +14,28 @@ public class UserPlace {
 		this.id = id;
 	}
 
-	public Users getUsers() {
-		return users;
+	public String getName() {
+		return name;
 	}
 
-	public void setUsers(Users users) {
-		this.users = users;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public CleanPlace getCp() {
-		return cp;
+	public String getContent() {
+		return content;
 	}
 
-	public void setCp(CleanPlace cp) {
-		this.cp = cp;
+	public void setContent(String content) {
+		this.content = content;
 	}
+
+	public int getDeleteFlag() {
+		return deleteFlag;
+	}
+
+	public void setDeleteFlag(int deleteFlag) {
+		this.deleteFlag = deleteFlag;
+	}
+
 }
