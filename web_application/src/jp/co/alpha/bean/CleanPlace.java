@@ -1,6 +1,6 @@
 package jp.co.alpha.bean;
 
-public class UserPlace {
+public class CleanPlace {
 	private int id;
 	private Users users;
 	private CleanPlace cp;

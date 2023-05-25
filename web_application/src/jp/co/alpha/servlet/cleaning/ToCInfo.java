@@ -1,6 +1,7 @@
 package jp.co.alpha.servlet.cleaning;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,6 +10,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 //ホーム画面「もっと見る」クリックした後の処理
+import javax.servlet.http.HttpSession;
+
+import jp.co.alpha.bean.Users;
+import jp.co.alpha.dao.CleanInfoDao;
 
 /**
  * Servlet implementation class ToCInfo
@@ -19,18 +24,18 @@ public class ToCInfo extends HttpServlet {
 			throws ServletException, IOException {
 		//セッションスコープからユーザー情報を取得
 		HttpSession session = request.getSession();
-		User user = (User) session.getAttribute("user");
+		Users user = (Users) session.getAttribute("user");
 
 		//ホーム画面から受け取ったデータを取得
 		String id = request.getParameter("id");
 		String name = request.getParameter("name");
 
 		//detailDaoのインスタンスを生成
-		DetailDao detailDao = new DetailDao();
+		CleanInfoDao detailDao = new CleanInfoDao();
 
 		//データベースから詳細画面に必要なデータを取得
-		List<Detail> detailList = detailDao.getDetailList(id);
-		List<String> placeList = detailDao.getPlaceList();
+		List<Detail> detailList = detailDao.getdetailList();
+		List<String> placeList = detailDao.getplaceList();
 
 		//リクエストスコープにデータを保存
 		request.setAttribute("user", user);

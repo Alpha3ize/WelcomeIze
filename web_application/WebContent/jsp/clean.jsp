@@ -17,7 +17,9 @@
 		</tr>
 	</c:forEach>
 	</table>
-	<a href="/jsp/clean_info">もっと見る</a>
+	<form action="/clean_info.jsp" method="get">
+		<input type="submit" value="もっと見る">
+	</form>
 
 
 

@@ -17,7 +17,7 @@ public class Clean_Info {
 		this.Serch_CleanInfo = Serch_CleanInfo;
 	}
 
-	public int getplaceList() {
+	public String getplaceList1() {
 		return placeList;
 	}
 
@@ -34,7 +34,7 @@ public class Clean_Info {
 	}
 
 	// getterとsetterメソッド
-	public int getdetailList() {
+	public String getdetailList() {
 		return detailList;
 	}
 
