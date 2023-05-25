@@ -18,24 +18,30 @@
 	</c:forEach>
 	</table>
 	<a href="/jsp/clean_info">もっと見る</a>
-	
-	
-	
+
+
+
 
 	<%-- 掃除場所 --%>
-	<select>
-		<c:forEach var="cleanPlace" items="${CleanPlace_List}">
-			<option value="${Cleanplace}>${Cleanplace}</option>
-		</c:forEach>
-	</select>
+	<!-- プルダウンで表示する場所の一覧 -->
+	<form action="/ToCInfo" method="post">
+		<select name="selectedPlace" onchange="submit()">
+			<c:forEach var="place" items="${placeList}">
+				<option value="${place}">${place}</option>
+			</c:forEach>
+		</select>
+	</form>
 
-	<h3>掃除場所詳細</h3>
-	<a href="/jsp/clean_new.jsp">編集</a>
-	<c:forEach var="CleanInfo" items="${Cleanplace_List}">
-		<tr>
-			<td>${Cleanplace_text}</td>
-		</tr>
-	</c:forEach>
-	<a href="/jsp/home.jsp">戻る</a>
+	<!-- プルダウンで選択した場所に対応する掃除内容 -->
+	<p>
+		掃除内容：<%= cleaning_content != null ? cleaning_content : "" %></p>
+
+	<!-- 戻るボタン サーブレット処理-->
+	<form action="/home.jsp" method="get">
+		<input type="submit" value="戻る">
+	</form>
+
+</body>
+</html>
 </body>
 </html>

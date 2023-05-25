@@ -1,5 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+<%-- ホーム画面「もっと見る」クリックした後の処理--%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,9 +13,10 @@
 <body>
 	<article class="main">
 		<h2>全体報告</h2>
-		<form action="<%=request.getContextPath()%>/CleanInfoDao" method="post">
-			<input type="text" name="Serch_CleanInfo" />
-			<input type="submit" value="検索" />
+		<form action="<%=request.getContextPath()%>/CleanInfoDao"
+			method="post">
+			<input type="text" name="Serch_CleanInfo" /> <input type="submit"
+				value="検索" />
 		</form>
 
 
