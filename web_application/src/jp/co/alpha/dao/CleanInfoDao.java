@@ -38,7 +38,7 @@ public class CleanInfoDao extends HttpServlet {
 		return CleanInfo_List;
 	}
 
-	public ArrayList<ToCInfo> getPlaces() throws SQLException {
+	public static List<Clean_Info> getPlaces() throws SQLException {
 		Connection con = null;
 		PreparedStatement ps = null;
 		List<Clean_Info> Clean_Places = new ArrayList<>();
@@ -53,7 +53,7 @@ public class CleanInfoDao extends HttpServlet {
 			while (rs.next()) {
 				places.add(rs.getString("c_place_name"));
 				ToCInfo places1 = new ToCInfo();
-				places.addAll(places);
+				places1.add(places1);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -64,7 +64,7 @@ public class CleanInfoDao extends HttpServlet {
 	}
 
 	// プルダウンで選択した場所に対応する掃除内容を取得するメソッド
-	public String getCleaningByPlace(String place) throws SQLException {
+	public List<Clean_Info> getCleaningByPlace(String place) throws SQLException {
 		Connection con = null;
 		PreparedStatement ps = null;
 		List<Clean_Info> CleanInfo_List = new ArrayList<Clean_Info>();
@@ -73,13 +73,13 @@ public class CleanInfoDao extends HttpServlet {
 			con = DBManager.getConnection();
 			ps = con.prepareStatement("SELECT c_content FROM clean_place WHERE c_place_name = ?");
 			ResultSet rs = ps.executeQuery();
-			PreparedStatement stmt = con.prepareStatement(1, "place");
-			ResultSet rs = stmt.executeQuery();
+			PreparedStatement stmt = con.prepareStatement(1, getCp());
+			ResultSet rs1 = stmt.executeQuery();
 
-			while (rs.next()) {
-				String task = rs.getString("c_content");
-				ToClinfo detail = new ToClnfo(task);
-				detailList.add(detail);
+			while (rs1.next()) {
+				String task = rs1.getString("c_content");
+				ToCInfo detail = new ToCInfo();
+				CleanInfo_List.add(detail);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -87,6 +87,6 @@ public class CleanInfoDao extends HttpServlet {
 			DBManager.close(ps, con);
 		}
 		// 掃除内容の文字列変数を返す
-		return cleaning_content;
+		return CleanInfo_List;
 	}
 }

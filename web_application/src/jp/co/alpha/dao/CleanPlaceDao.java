@@ -27,7 +27,7 @@ public class CleanPlaceDao {
 			while (rs.next()) {
 				CleanPlace cp = new CleanPlace();
 				cp.setId(rs.getInt("c_place_id"));
-				cp.setName(rs.getString("c_place_name"));
+				cp.setCp(rs.getString("c_place_name"));
 				cpList.add(cp);
 			}
 		} catch (SQLException e) {

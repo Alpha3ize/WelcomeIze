@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import jp.co.alpha.bean.CleanPrace;
-import jp.co.alpha.dao.CleanPraceDao;
+import jp.co.alpha.bean.CleanPlace;
+import jp.co.alpha.dao.CleanPlaceDao;
 
 /**
  * Servlet implementation class CleaingView
@@ -21,8 +21,9 @@ public class ToClean extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		List<CleanPrace> CleanPraceList = CleanPraceDao.findAll();
-		request.setAttribute("CleanPraceList", CleanPraceList);
+		//仮置き
+		List<CleanPlace> CleanPlaceList = CleanPlaceDao.findCPName(0);
+		request.setAttribute("CleanPlaceList", CleanPlaceList);
 		request.getRequestDispatcher("/jsp/clean.jsp").forward(request, response);
 
 	}

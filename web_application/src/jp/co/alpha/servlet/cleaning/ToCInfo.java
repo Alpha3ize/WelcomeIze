@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 //ホーム画面「もっと見る」クリックした後の処理
 import javax.servlet.http.HttpSession;
 
+import jp.co.alpha.bean.Clean_Info;
 import jp.co.alpha.bean.Users;
 import jp.co.alpha.dao.CleanInfoDao;
 
@@ -34,8 +35,9 @@ public class ToCInfo extends HttpServlet {
 		CleanInfoDao detailDao = new CleanInfoDao();
 
 		//データベースから詳細画面に必要なデータを取得
-		List<Detail> detailList = detailDao.getdetailList();
-		List<String> placeList = detailDao.getplaceList();
+		//仮で入れているだけ
+		List<Clean_Info> detailList = CleanInfoDao.twoCleanInfo(name);
+		List<Clean_Info> placeList = CleanInfoDao.getPlaces();
 
 		//リクエストスコープにデータを保存
 		request.setAttribute("user", user);

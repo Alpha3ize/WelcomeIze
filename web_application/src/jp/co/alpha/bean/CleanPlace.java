@@ -3,7 +3,7 @@ package jp.co.alpha.bean;
 public class CleanPlace {
 	private int id;
 	private Users users;
-	private CleanPlace cp;
+	private String cp;
 
 	public int getId() {
 		return id;
@@ -21,11 +21,12 @@ public class CleanPlace {
 		this.users = users;
 	}
 
-	public CleanPlace getCp() {
+	public String getCp() {
 		return cp;
 	}
 
-	public void setCp(CleanPlace cp) {
+	public void setCp(String cp) {
 		this.cp = cp;
 	}
+
 }

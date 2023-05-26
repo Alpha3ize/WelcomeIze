@@ -36,7 +36,7 @@
 
 	<!-- プルダウンで選択した場所に対応する掃除内容 -->
 	<p>
-		掃除内容：<%= cleaning_content != null ? cleaning_content : "" %></p>
+		掃除内容：<%=cleaning_content != null ? cleaning_content : ""%></p>
 
 	<!-- 戻るボタン サーブレット処理-->
 	<form action="/home.jsp" method="get">
